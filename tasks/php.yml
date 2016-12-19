@@ -10,3 +10,9 @@
     state: latest
     name: "{{ item }}"
   with_items: "{{ php_packages }}"
+
+- name: Install php custom packages
+  apt:
+    state: latest
+    name: "{{ item }}"
+  with_items: "{{ php_packages_custom }}"
