@@ -1,13 +1,11 @@
 ---
 php_repo: "ppa:ondrej/php"
+php_version: "7.1"
 php_packages:
-  - php7.1
-  - php7.1-cli
-  - php7.1-common
-  - php7.1-fpm
-  - php7.1-gd
-  - php7.1-json
-  - php7.1-mcrypt
-  - php7.1-mysql
-  - php7.1-pgsql
-  - php7.1-soap
+  - "php{{ php_version }}"
+  - "php{{ php_version }}-cli"
+  - "php{{ php_version }}-common"
+  - "php{{ php_version }}-fpm"
+  - "php{{ php_version }}-gd"
+
+pgp_packages_custom: ""
