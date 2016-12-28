@@ -15,4 +15,5 @@
   apt:
     state: latest
     name: "{{ item }}"
-  with_items: "{{ php_packages_custom }}"
+  with_items: "{{ php_packages_custom|default(omit) }}"
+  when: php_packages_custom is defined
