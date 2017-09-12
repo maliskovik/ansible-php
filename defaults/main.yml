@@ -8,4 +8,4 @@ php_packages:
   - "php{{ php_version }}-fpm"
   - "php{{ php_version }}-gd"
 
-pgp_packages_custom: ""
+php_packages_custom: ""
