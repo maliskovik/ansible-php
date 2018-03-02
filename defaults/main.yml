@@ -7,5 +7,3 @@ php_packages:
   - "php{{ php_version }}-common"
   - "php{{ php_version }}-fpm"
   - "php{{ php_version }}-gd"
-
-php_packages_custom: ""
