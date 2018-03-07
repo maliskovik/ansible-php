@@ -17,6 +17,8 @@
     name: "{{ item }}"
   with_items: "{{ php_packages_custom|default(omit) }}"
   when: php_packages_custom is defined
+  notify:
+    - "Restart fpm"
 
 - name: Install pear packages
   pear:
@@ -24,6 +26,8 @@
     name: "{{ item }}"
   with_items: "{{ php_pear_packages|default(omit) }}"
   when: php_pear_packages is defined
+  notify:
+    - "Restart fpm"
 
 - name: Configure php fpm
   lineinfile:
