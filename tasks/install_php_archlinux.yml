@@ -1,0 +1,22 @@
+---
+
+- name: Install PHP
+  pacman:
+    state: latest
+    name:
+      - php
+      - php-fpm
+
+- name: Install PHP custom packages
+  pacman:
+    state: latest
+    name: "{{ item }}"
+  with_items: "{{ php_packages_custom|default(omit) }}"
+  when: php_packages_custom is defined
+
+- name: Install Pear packages
+  pear:
+    state: present
+    name: "{{ item }}"
+  with_items: "{{ php_pear_packages|default(omit) }}"
+  when: php_pear_packages is defined

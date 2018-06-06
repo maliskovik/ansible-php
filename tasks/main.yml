@@ -1,2 +1,6 @@
 ---
 - import_tasks: php.yml
+- include: install_php_ubuntu.yml
+  when: ansible_os_family == "Debian"
+- include: install_php_archlinux.yml
+  when: ansible_os_family == "Archlinux"
