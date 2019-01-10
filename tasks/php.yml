@@ -8,14 +8,12 @@
 - name: Install php
   apt:
     state: latest
-    name: "{{ item }}"
-  with_items: "{{ php_packages }}"
+    name: "{{ php_packages|default(omit) }}"
 
 - name: Install php custom packages
   apt:
     state: latest
-    name: "{{ item }}"
-  with_items: "{{ php_packages_custom|default(omit) }}"
+    name: "{{ php_packages_custom|default(omit) }}"
   when: php_packages_custom is defined
   notify:
     - "Restart fpm"
