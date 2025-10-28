@@ -15,12 +15,12 @@
   apt:
     state: latest
     name: "{{ item }}"
-  with_items: "{{ php_packages_custom|default(omit) }}"
+  with_items: "{{ php_packages_custom|default('') }}"
   when: php_packages_custom is defined
 
 - name: Install pear packages
   pear:
     state: present
     name: "{{ item }}"
-  with_items: "{{ php_pear_packages|default(omit) }}"
+  with_items: "{{ php_pear_packages|default('') }}"
   when: php_pear_packages is defined
